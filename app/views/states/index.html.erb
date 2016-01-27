@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing States</h1>
+<h1 class="abel">Listing States</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>ID</th>
@@ -20,9 +20,9 @@
         <td><%= state.name %></td>
         <td><%= state.capital %></td>
         <td><%= number_with_delimiter state.population %></td>
-        <td><%= link_to 'Show', state %></td>
-        <td><%= link_to 'Edit', edit_state_path(state) %></td>
-        <td><%= link_to 'Destroy', state, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><span class="glyphicon glyphicon-eye-open"></span> <%= link_to 'Show', state %></td>
+        <td><span class="glyphicon glyphicon-pencil"></span> <%= link_to 'Edit', edit_state_path(state) %></td>
+        <td><span class="glyphicon glyphicon-remove"></span> <%= link_to 'Destroy', state, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New State', new_state_path %>
+<%= link_to 'New State', new_state_path, class: "btn btn-info"  %>

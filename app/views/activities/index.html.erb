@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Activities</h1>
+<h1 class="abel">Listing Activities</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>ID</th>
@@ -19,15 +19,23 @@
         <td><%= activity.id %></td>
         <td><%= activity.name %></td>
         <td><%= number_to_currency activity.cost %></td>
-        <td><%= activity.duration %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= distance_of_time_in_words(activity.duration*3600) %></td>
+        <td><span class="glyphicon glyphicon-eye-open"></span> <%= link_to 'Show', activity %></td>
+        <td><span class="glyphicon glyphicon-pencil"></span> <%= link_to 'Edit', edit_activity_path(activity) %></td>
+        <td><span class="glyphicon glyphicon-remove"></span> <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<p>
+  <%= link_to 'New Activity', new_activity_path, class: "btn btn-info" %>
+</p>
 
-<%= link_to 'New Activity', new_activity_path %>
+<hr />
+
+<div class="center-it">
+  <% @pictures.shuffle.each do |pic| %>
+    <%= image_tag pic, alt: "adventures", width: "400" %>
+  <% end %>
+</div>

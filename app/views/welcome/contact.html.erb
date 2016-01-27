@@ -1,0 +1,25 @@
+<style>
+  .chameleon-text {
+    color: <%= @color %>;
+  }
+</style>
+
+<div class="center-it">
+  <h1>Contact Me, Bro!</h1>
+
+  <p>
+    <%= image_tag "camels.jpg", alt: "CAMELS!", width: "500" %>
+  </p>
+  <p class="chameleon-text">
+    Sriracha messenger bag marfa fashion axe tousled, tumblr vegan etsy drinking vinegar crucifix man braid kickstarter cronut paleo. Lo-fi schlitz cray, scenester mlkshk actually echo park yuccie chartreuse tattooed. Pour-over hammock pork belly asymmetrical. Post-ironic vegan schlitz mlkshk, waistcoat farm-to-table echo park cardigan tattooed. Taxidermy synth direct trade heirloom, migas tote bag tousled flexitarian master cleanse cronut poutine blue bottle 90's. Listicle butcher seitan man bun, keytar squid helvetica. Taxidermy tumblr cred artisan, four dollar toast hashtag echo park pinterest meggings twee.
+  </p>
+
+  <h2>Change the Color of the Paragraph!</h2>
+
+  <!-- Show only buttons for colors that are currently the background -->
+  <% @colorpad.each do |k,v| %>
+    <% if @color != v %>
+        <%= link_to "#{v.capitalize}", contact_path(color: v), class: "btn btn-#{k}" %>
+    <% end %>
+  <% end %>
+</div>
